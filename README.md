@@ -9,4 +9,4 @@ Work day planner built to store take in events and store them while indicating c
 ## Deployed site
 You can find the deployed site here:
 
-[Workday Scheduler site]()
+[Workday Scheduler site](https://mattyb5000.github.io/work-day-scheduler/)
