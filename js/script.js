@@ -1,36 +1,45 @@
-// var 
+// set current time in military time to reference in conditional statement
 var currentHour = moment().format("HH");
-
+// today's date
 var today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY"));
 
 
 
 
-// forloop
+// listen for button click and store textarea value to var text
 $('button').click(function() {
     var text = $('textarea').val();
+    // value stores in "text"
     console.log(text)
-    localStorage.setItem("9AM", text);
-    //send to server and process response
+    // still working on setting this to work for all hours and not just 9AM
+    localStorage.setItem("hour", text);
 });
 
 
-// this could help if I can figure out how to put a click in here according to Greg
+
 
 // $("button").each(function( index ) {
 //     console.log( index + ": " + $( this ).text() );
 //   });
 
   $("textarea").each(function() {
-      var hourId = $(this).attr("id")
-    console.log(hourId);
+      var hourId = $(this).attr("id");
+    // console.log(hourId);
     if(hourId < currentHour){
+        $(this).addClass("past");
+        $(this).removeClass("present", "future");
+        // $(this).removeClass("future");
         console.log("past");
-        textarea.attr("style", 
-
-     
-    };
-
-  });
-  console.log(currentHour)
+    } else if (hourId === currentHour){
+        $(this).addClass("present");
+        $(this).removeClass("past", "future");
+        // $(this).removeClass("future");
+        console.log("present");
+    } else if (hourId >= currentHour){
+        $(this).addClass("future");
+        $(this).removeClass("past", "present");
+        // $(this).removeClass("present");
+        // console.log("future");
+    }
+});
