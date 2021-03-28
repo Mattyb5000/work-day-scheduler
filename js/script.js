@@ -1,28 +1,15 @@
-// set current time in military time to reference in conditional statement
 var currentHour = moment().format("HH");
 // today's date
 var today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY"));
 
-
-
-
 // listen for button click and store textarea value to var text
 $('button').click(function () {
-    var text = $('textarea').val();
-    // value stores in "text"
-    console.log(text)
-    // still working on setting this to work for all hours and not just 9AM
-    localStorage.setItem("hour", text);
+    var input = $('textarea').val();
+    localStorage.setItem("input", input);
 });
 
-
-
-
-$("button").each(function (index) {
-    console.log(index + ": " + $(this).text());
-});
-
+// targeting the ID attributes of the textarea elements ("this" element = textarea) 
 $("textarea").each(function () {
     var hourId = $(this).attr("id");
     if (hourId < currentHour) {
